@@ -1,5 +1,7 @@
 /* setup your angular app here */
 var app = angular.module('myApp', []);
+var anotherboolean = false;
+var boolean = false;
 
 function shuffle(array) {
   var i = 0,
@@ -32,18 +34,21 @@ app.controller('foodCtrl', ['$scope', function($scope) {
     $scope.winCheck();
     return;
   };
+
   $scope.moveLeftFromMid = function(idx) {
     temp = $scope.foodArray.splice(idx, 1).toString();
     $scope.fruitHolder.push(temp);
     $scope.winCheck();
     return;
   };
+
   $scope.moveRight = function(idx) {
     temp = $scope.fruitHolder.splice(idx, 1).toString();;
     $scope.foodArray.push(temp);
     $scope.winCheck();
     return;
   };
+
   $scope.moveLeft = function(idx) {
     temp = $scope.vegHolder.splice(idx, 1).toString();;
     $scope.foodArray.push(temp);
@@ -97,6 +102,7 @@ app.controller('foodCtrl', ['$scope', function($scope) {
     $scope.winCheck();
     return $scope.foodArray;
   };
+
   $scope.moveDownLeft = function(idx) {
     if($scope.fruitHolder[idx] !== $scope.fruitHolder[$scope.fruitHolder.length - 1]) {
       temp = $scope.fruitHolder[idx];
@@ -107,6 +113,7 @@ app.controller('foodCtrl', ['$scope', function($scope) {
     $scope.winCheck();
     return $scope.fruitHolder;
   };
+
   $scope.moveDownRight = function(idx) {
     if($scope.vegHolder[idx] !== $scope.vegHolder[$scope.vegHolder.length - 1]) {
       console.log('hi')
@@ -120,31 +127,37 @@ app.controller('foodCtrl', ['$scope', function($scope) {
   };
 
   $scope.winCheck = function() {
-    if ($scope.foodArray.length === 0) {
       temp = $scope.vegHolder;
       temp = temp.toString();
       vegtemp = vegetables.toString();
-      if(temp === vegtemp) {
+      if(temp === vegtemp && boolean === false) {
         console.log(temp + ' vegholder');
         alert('veg wins;D');
+        boolean = true;
         return;
       };
       temp2 = $scope.fruitHolder;
       temp2 = temp2.toString();
       fruittemp = fruits.toString();
-      if(temp2 === fruittemp) {
+      if(temp2 === fruittemp && anotherboolean === false) {
         console.log(temp2 + ' fruitholder');
         alert('fruit wins;D');
+        anotherboolean = true;
         return;
       };
-    };
   };
 
   $scope.colorChange = function(idx, array) {
-   if(array.indexOf(idx) === -1) {
-     console.log('color checker');
-     return true;
-   };
+    if($scope.foodArray.length === 0) {
+      if(array === 'fruitHolder') {
+        if(array.indexOf(idx) === -1) {
+          console.log('color checker');
+          return true;
+        }else{
+          return false;
+        };
+      };
+    };
   };
 
 }]);
