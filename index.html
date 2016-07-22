@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <h3>Fruits</h3>
-                        <div class="well text-center space" ng-repeat="frutas in fruitHolder track by $index" ng-class="colorChange">
+                        <div class="well text-center space" ng-repeat="frutas in fruitHolder track by $index" ng-class="{'red': colorChange(frutas, 'fruits')}">
                               <span>{{ frutas }}</span>!
                           <button ng-click="moveRight($index)">-></button>
                           <div>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-sm-4">
                     <h3>All Food</h3>
-                      <div class="well text-center" ng-repeat="food in foodArray track by $index" ng-class="colorChange">
+                      <div class="well text-center" ng-repeat="food in foodArray track by $index">
                           <button ng-click="moveLeftFromMid($index)"><-</button>
                               {{ food }}
                           <button ng-click="moveRightFromMid($index)">-></button>
@@ -38,13 +38,13 @@
                 </div>
                 <div class="col-sm-4">
                     <h3>Veggies</h3>
-                      <div class="well text-center space" ng-repeat="veg in vegHolder track by $index" ng-class="colorChange">
+                      <div class="well text-center space" ng-repeat="veg in vegHolder track by $index" ng-class="{'red': colorChange(veg, 'vegetables')}">
                           <div>
                               <button ng-click="moveLeft($index)"><-</button>
                           </div>
                           <div>
                               <button ng-click="moveUpRight($index)">Up</button>
-                              <button ng-click="moveDown($index)">Down</button>
+                              <button ng-click="moveDownRight($index)">Down</button>
                           </div>
                               <span>{{ veg }}</span>!
                       </div>
