@@ -10,5 +10,5 @@ var fruits = [
 var vegetables = [
   'Artichoke',
   'Arugula',
-  'Asparagus'
+  'Asparagus',
 ];

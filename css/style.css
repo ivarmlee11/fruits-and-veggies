@@ -1,1 +1,6 @@
-/* file for your css */
+.space {
+  min-width: 100px;
+}
+.red {
+  background-color: red;
+}
