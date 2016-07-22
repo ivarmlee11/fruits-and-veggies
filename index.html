@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-sm-4">
                     <h3>All Food</h3>
-                      <div class="well text-center" ng-repeat="food in foodArray | orderBy: random track by $index" ng-class="colorChange">
+                      <div class="well text-center" ng-repeat="food in foodArray track by $index" ng-class="colorChange">
                           <button ng-click="moveLeftFromMid($index)"><-</button>
                               {{ food }}
                           <button ng-click="moveRightFromMid($index)">-></button>
@@ -41,11 +41,10 @@
                       <div class="well text-center space" ng-repeat="veg in vegHolder track by $index" ng-class="colorChange">
                           <div>
                               <button ng-click="moveLeft($index)"><-</button>
-                              <button ng-click="moveUp($index)">Up</button>
                           </div>
                           <div>
                               <button ng-click="moveUpRight($index)">Up</button>
-                              <button ng-click="moveDownRight($index)">Down</button>
+                              <button ng-click="moveDown($index)">Down</button>
                           </div>
                               <span>{{ veg }}</span>!
                       </div>
